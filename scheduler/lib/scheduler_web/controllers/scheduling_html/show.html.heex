@@ -1,0 +1,15 @@
+<.header>
+  Scheduling <%= @scheduling.id %>
+  <:subtitle>This is a scheduling record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/schedulings/#{@scheduling}/edit"}>
+      <.button>Edit scheduling</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Name"><%= @scheduling.name %></:item>
+</.list>
+
+<.back navigate={~p"/schedulings"}>Back to schedulings</.back>

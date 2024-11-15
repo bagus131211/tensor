@@ -1,0 +1,30 @@
+<h2>List of users</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Email</th>
+      
+      <th></th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <%= for user <- @users do %>
+      <tr>
+        <td><%= user.email %></td>
+        
+        <td class="text-right">
+          <.link navigate={~p"/users/#{user}"} class="btn btn-default btn-xs">Profile</.link>
+          <.link navigate={~p"/users/#{user}/edit"} class="btn btn-default btn-xs">Edit</.link>
+          <.link 
+            href={~p"/users/#{user}"} 
+            class="btn btn-default btn-xs" 
+            method="delete" 
+            data-confirm="Are you sure?">Delete this</.link>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ <.link navigate={~p"/users/new"}>New User</.link>

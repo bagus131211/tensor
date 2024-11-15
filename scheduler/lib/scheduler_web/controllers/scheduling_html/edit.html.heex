@@ -1,0 +1,8 @@
+<.header>
+  Edit Scheduling <%= @scheduling.id %>
+  <:subtitle>Use this form to manage scheduling records in your database.</:subtitle>
+</.header>
+
+<.scheduling_form changeset={@changeset} action={~p"/schedulings/#{@scheduling}"} />
+
+<.back navigate={~p"/schedulings"}>Back to schedulings</.back>

@@ -1,0 +1,24 @@
+<.header>
+  Listing Shifts
+  <:actions>
+    <.link href={~p"/shifts/new"}>
+      <.button>New Shift</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="shifts" rows={@shifts} row_click={&JS.navigate(~p"/shifts/#{&1}")}>
+  <:col :let={shift} label="Start time"><%= shift.start_time %></:col>
+  <:col :let={shift} label="End time"><%= shift.end_time %></:col>
+  <:action :let={shift}>
+    <div class="sr-only">
+      <.link navigate={~p"/shifts/#{shift}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/shifts/#{shift}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={shift}>
+    <.link href={~p"/shifts/#{shift}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

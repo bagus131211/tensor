@@ -1,0 +1,24 @@
+<h2>Create a new user</h2>
+
+<.form :let={f} for={@changeset} action={~p"/users"}>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Something wrong please check below errors</p>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <.label for="user_email">Email</.label>
+     <.input type="email" field={f[:email]} />
+  </div>
+  
+  <div class="form-group">
+    <.label for="user_password">Password</.label>
+     <.input type="password" field={f[:password]} />
+  </div>
+   <br /> <br />
+  <div>
+    <.button type="submit">Submit</.button>
+  </div>
+</.form>
+ <.link navigate={~p"/users"}>Back</.link>

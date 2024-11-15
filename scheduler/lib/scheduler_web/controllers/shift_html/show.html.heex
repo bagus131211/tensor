@@ -1,0 +1,16 @@
+<.header>
+  Shift <%= @shift.id %>
+  <:subtitle>This is a shift record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/shifts/#{@shift}/edit"}>
+      <.button>Edit shift</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Start time"><%= @shift.start_time %></:item>
+  <:item title="End time"><%= @shift.end_time %></:item>
+</.list>
+
+<.back navigate={~p"/shifts"}>Back to shifts</.back>
